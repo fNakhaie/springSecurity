@@ -34,6 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+//                if we have to call api from ui to prevent forgery
+//                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                .and()
                 .authorizeRequests()
                 .antMatchers("/","index","/css/*","/js/*").permitAll()
 //                if we don't want to use @PreAuthorize then should use these lines
